@@ -1002,6 +1002,41 @@
     .case-copy, .case-visual{ min-width:0; }
   }
 
+  .case-demo{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:28px 44px 44px;
+    margin-top:20px;
+    --ink:#0B2540;
+    --ink-soft:#3C5068;
+    --border:#E2DED2;
+  }
+  html[data-theme="dark"] .case-demo{
+    --ink:#F2F2ED;
+    --ink-soft:#A9AFB8;
+    --border:#232B37;
+  }
+  .case-demo-label{ margin-bottom:16px; }
+  .case-video-wrap{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:#000;
+    line-height:0;
+  }
+  .case-video{
+    width:100%;
+    height:auto;
+    display:block;
+    aspect-ratio:16/9;
+    background:#000;
+  }
+  @media (max-width: 860px){
+    .case-demo{ padding:22px 20px 28px; }
+  }
+
   /* ---------- Experience ---------- */
   .timeline{ display:flex; flex-direction:column; }
   .tl-item{
@@ -1439,6 +1474,23 @@
           <div class="big">-85%</div>
           <div class="small">Reduction in manual consolidation time, multi-day to 1&ndash;2 hours</div>
         </div>
+      </div>
+    </div>
+    <div class="case-demo">
+      <div class="case-demo-label">
+        <span class="kicker">Watch it run</span>
+      </div>
+      <div class="case-video-wrap">
+        <video
+          id="atlasVideo"
+          class="case-video"
+          poster="assets/atlas-poster.jpg"
+          preload="metadata"
+          playsinline
+          controls>
+          <source src="assets/atlas-demo.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+        </video>
       </div>
     </div>
   </section>
