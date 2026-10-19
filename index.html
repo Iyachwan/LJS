@@ -1184,35 +1184,21 @@
   }
   .lightbox-close svg{ width:16px; height:16px; }
 
-  /* ---------- Tools marquee ---------- */
-  .tools-marquee{
-    position:relative;
-    overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  /* ---------- Tools (static) ---------- */
+  .tools-groups{ display:grid; gap:28px; }
+  .tools-group-title{
+    font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0 0 12px;
   }
-  .tools-track{
-    display:flex;
-    gap:14px;
-    width:max-content;
-    animation: tools-scroll 28s linear infinite;
-  }
-  .tools-track-2{ display:none; }
-  .tools-marquee:hover .tools-track{ animation-play-state: paused; }
-  @keyframes tools-scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
-  @keyframes tools-scroll-reverse{
-    from{ transform:translateX(-50%); }
-    to{ transform:translateX(0); }
-  }
+  .tools-grid{ display:flex; flex-wrap:wrap; gap:12px; }
+  .tools-grid > *{ min-width:0; }
   @media (max-width: 640px){
-    .tools-marquee{ display:flex; flex-direction:column; gap:10px; }
-    .tools-track-2{ display:flex; }
-    .tools-track{ animation-duration:42s; gap:10px; }
-    .tools-track-2{ animation: tools-scroll-reverse 48s linear infinite; }
-    .tool-card{ padding:10px 14px; gap:8px; }
+    .tools-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .tool-card{ padding:12px 14px; gap:10px; }
+    .tool-badge{ width:24px; height:24px; }
+    .tool-card span{ font-size:13.5px; white-space:normal !important; }
+  }
+  .tool-card{ padding:10px 14px; gap:8px; }
     .tool-badge{ width:22px; height:22px; }
     .tool-card span{ font-size:12px; }
   }
@@ -1240,10 +1226,47 @@
     font-size:14px; font-weight:500; color:var(--ink-soft);
     white-space:nowrap;
   }
-  @media (prefers-reduced-motion: reduce){
-    .tools-track{ animation:none; }
-    .tools-marquee{ overflow-x:auto; }
+
+
+  /* ---------- Work samples (Solano Inc.) ---------- */
+  .samples-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
+  .samples-grid > *{ min-width:0; }
+  .sample-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:24px; display:flex; flex-direction:column; gap:12px;
   }
+  .sample-card .kicker{ font-size:13px; }
+  .sample-card h3{ font-family:var(--serif); font-weight:500; font-size:24px; margin:0; color:var(--ink); }
+  .sample-card p{ color:var(--ink-soft); font-size:15.5px; line-height:1.6; margin:0; }
+  .sample-thumb{
+    display:block; width:100%; max-width:100%; padding:0; border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; cursor:zoom-in; background:#fff; aspect-ratio:16/8;
+  }
+  .sample-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top left; display:block; transition:transform .3s ease; }
+  .sample-thumb:hover img{ transform:scale(1.02); }
+  .sample-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .sample-tags span{ font-size:13px; border:1px solid var(--border); border-radius:999px; padding:4px 10px; color:var(--ink-soft); }
+  .sample-link{ align-self:flex-start; background:none; border:0; padding:0; cursor:pointer; color:var(--accent); font:600 15.5px var(--sans, inherit); }
+  .sample-link:hover{ text-decoration:underline; }
+  .sample-card.is-soon{ opacity:.7; justify-content:center; }
+  .sample-soon{ font-family:var(--mono); font-size:13px; color:var(--ink-soft); }
+  @media (max-width: 860px){ .samples-grid{ grid-template-columns:1fr; } }
+
+  .xg-overlay{ position:fixed; inset:0; z-index:200; background:rgba(8,12,18,.9); display:none; align-items:center; justify-content:center; padding:16px; }
+  .xg-overlay.open{ display:flex; }
+  .xg{ width:min(1180px,100%); max-height:100%; display:flex; flex-direction:column; gap:12px; }
+  .xg-top{ display:flex; justify-content:space-between; align-items:center; color:#E8EEF6; font-family:var(--mono); font-size:13.5px; }
+  .xg-close, .xg-nav button{
+    width:40px; height:40px; border-radius:999px; border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08); color:#fff; font-size:20px; line-height:1; cursor:pointer;
+  }
+  .xg-close:hover, .xg-nav button:hover{ background:rgba(255,255,255,.18); }
+  .xg-stage{ background:#fff; border-radius:10px; overflow:auto; max-height:72vh; }
+  .xg-stage img{ display:block; width:100%; height:auto; }
+  .xg-bottom{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; color:#E8EEF6; }
+  .xg-cap{ min-width:0; font-size:15px; line-height:1.5; }
+  .xg-cap b{ display:block; font-family:var(--serif); font-weight:500; font-size:19px; margin-bottom:2px; }
+  .xg-nav{ display:flex; gap:8px; flex-shrink:0; }
 
   /* ---------- Skills strip ---------- */
   .skills-wrap{
@@ -1450,7 +1473,7 @@
     <div class="case">
       <div class="case-copy">
         <div class="kicker">Internal automation tool</div>
-        <h3>From days to hours, without losing accuracy</h3>
+        <h3>From days to minutes, without losing accuracy</h3>
         <p>Payroll registers for 2,800+ employees across multiple clients used to take several days to consolidate, verify, and turn into journal entries. I built a Google Apps Script system that does all three — automatically.</p>
         <ul class="case-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Consolidates payroll registers across multiple clients and sites</li>
@@ -1471,8 +1494,8 @@
           <div class="flow-chip">Xero CSV</div>
         </div>
         <div class="case-metric-row">
-          <div class="big">-85%</div>
-          <div class="small">Reduction in manual consolidation time, multi-day to 1&ndash;2 hours</div>
+          <div class="big">1&ndash;5 min</div>
+          <div class="small">Consolidation time per run, down from several days of manual work</div>
         </div>
       </div>
     </div>
@@ -1492,6 +1515,47 @@
           Your browser doesn't support embedded video.
         </video>
       </div>
+    </div>
+  </section>
+  </div>
+  </div>
+
+  <!-- WORK SAMPLES -->
+  <div class="bg-dotgrid panel">
+  <div class="wrap">
+  <section id="samples" class="reveal">
+    <div class="section-head">
+      <div class="kicker">Work samples</div>
+      <h2>Solano Inc. &mdash; September close</h2>
+      <p class="section-desc">A fictional client with demo data, so you can see the full workflow without exposing anyone's real books.</p>
+    </div>
+    <div class="samples-grid">
+      <article class="sample-card">
+        <div class="kicker">Xero</div>
+        <button type="button" class="sample-thumb" data-xg-open="1" aria-label="Open bank reconciliation screenshot">
+          <img src="assets/solano/2-bank-rec.webp" alt="Xero bank account transactions for Solano Inc., September 2026" loading="lazy" />
+        </button>
+        <h3>Month-end close in Xero</h3>
+        <p>Opening balances, bank reconciliation, a bounced customer check, and month-end reports for one month of a small wholesale business.</p>
+        <div class="sample-tags"><span>Bank reconciliation</span><span>AR &amp; AP</span><span>Month-end reports</span></div>
+        <button type="button" class="sample-link" data-xg-open="0">View screenshots &rarr;</button>
+        <ul hidden id="xgData">
+        <li data-src="assets/solano/1-conversion-balances.webp" data-title="Conversion balances">Opening balances as of 31 Aug 2026. Debits and credits tie at 749,669.38.</li>
+        <li data-src="assets/solano/2-bank-rec.webp" data-title="Bank reconciliation">September reconciled. Two items left open at cutoff: a deposit in transit and an outstanding check.</li>
+        <li data-src="assets/solano/3-bounced-check.webp" data-title="Bounced check">A customer check returned NSF, routed through a clearing account that nets to zero, so the invoice stays open.</li>
+        <li data-src="assets/solano/4-bank-rec-summary.webp" data-title="Bank reconciliation summary">Xero balance to statement balance, with each reconciling item listed.</li>
+        <li data-src="assets/solano/5-profit-and-loss.webp" data-title="Profit and loss">September P&amp;L. Net profit 17,581.74.</li>
+        <li data-src="assets/solano/6-balance-sheet.webp" data-title="Balance sheet">Balance sheet as at 30 September 2026.</li>
+        <li data-src="assets/solano/7-aged-receivables.webp" data-title="Aged receivables">Open customer invoices by aging bucket.</li>
+        <li data-src="assets/solano/8-aged-payables.webp" data-title="Aged payables">Open supplier bills by aging bucket.</li>
+        </ul>
+      </article>
+      <article class="sample-card is-soon">
+        <div class="kicker">QuickBooks Online</div>
+        <h3>Same close in QuickBooks</h3>
+        <p>The same September close, done in QuickBooks Online.</p>
+        <span class="sample-soon">Coming soon</span>
+      </article>
     </div>
   </section>
   </div>
@@ -1558,7 +1622,7 @@
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3>Process automation</h3>
-        <p>Custom Google Apps Script tools that consolidate, verify, and export — cutting manual work from days to hours.</p>
+        <p>Custom Google Apps Script tools that consolidate, verify, and export — cutting manual work from days to minutes.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
@@ -1711,70 +1775,31 @@
       <div class="kicker">Toolkit</div>
       <h2>Tools I work with</h2>
     </div>
-    <div class="tools-marquee">
-      <div class="tools-track tools-track-1">
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/xero.webp" alt="Xero" /></span><span>Xero</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/quickbooks.png" alt="QuickBooks Online" /></span><span>QuickBooks Online</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/apps-script.webp" alt="Google Apps Script" /></span><span>Google Apps Script</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/excel.png" alt="Excel" /></span><span>Excel</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-sheets.png" alt="Google Sheets" /></span><span>Google Sheets</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/drive.png" alt="Google Drive" /></span><span>Google Drive</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/calendar.png" alt="Google Calendar" /></span><span>Google Calendar</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/gmail.png" alt="Gmail" /></span><span>Gmail</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-meet.png" alt="Google Meet" /></span><span>Google Meet</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/dext.png" alt="Dext" /></span><span>Dext</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/saasant.png" alt="Saasant" /></span><span>Saasant</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/loom.png" alt="Loom" /></span><span>Loom</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/chatgpt.png" alt="ChatGPT" /></span><span>ChatGPT</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/claude-icon.png" alt="Claude" /></span><span>Claude</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/notebooklm.png" alt="NotebookLM" /></span><span>NotebookLM</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/xero.webp" alt="Xero" /></span><span>Xero</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/quickbooks.png" alt="QuickBooks Online" /></span><span>QuickBooks Online</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/apps-script.webp" alt="Google Apps Script" /></span><span>Google Apps Script</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/excel.png" alt="Excel" /></span><span>Excel</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-sheets.png" alt="Google Sheets" /></span><span>Google Sheets</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/drive.png" alt="Google Drive" /></span><span>Google Drive</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/calendar.png" alt="Google Calendar" /></span><span>Google Calendar</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/gmail.png" alt="Gmail" /></span><span>Gmail</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-meet.png" alt="Google Meet" /></span><span>Google Meet</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/dext.png" alt="Dext" /></span><span>Dext</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/saasant.png" alt="Saasant" /></span><span>Saasant</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/loom.png" alt="Loom" /></span><span>Loom</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/chatgpt.png" alt="ChatGPT" /></span><span>ChatGPT</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/claude-icon.png" alt="Claude" /></span><span>Claude</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/notebooklm.png" alt="NotebookLM" /></span><span>NotebookLM</span></div>
+    <div class="tools-groups">
+      <div class="tools-group">
+        <h3 class="tools-group-title">Accounting &amp; bookkeeping</h3>
+        <div class="tools-grid">
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/xero.webp" alt="Xero" /></span><span>Xero</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/quickbooks.png" alt="QuickBooks Online" /></span><span>QuickBooks Online</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/excel.png" alt="Excel" /></span><span>Excel</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-sheets.png" alt="Google Sheets" /></span><span>Google Sheets</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/apps-script.webp" alt="Google Apps Script" /></span><span>Google Apps Script</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/dext.png" alt="Dext" /></span><span>Dext</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/saasant.png" alt="Saasant" /></span><span>Saasant</span></div>
+        </div>
       </div>
-      <div class="tools-track tools-track-2">
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/quickbooks.png" alt="QuickBooks Online" /></span><span>QuickBooks Online</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-sheets.png" alt="Google Sheets" /></span><span>Google Sheets</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/gmail.png" alt="Gmail" /></span><span>Gmail</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/saasant.png" alt="Saasant" /></span><span>Saasant</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/claude-icon.png" alt="Claude" /></span><span>Claude</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/xero.webp" alt="Xero" /></span><span>Xero</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/drive.png" alt="Google Drive" /></span><span>Google Drive</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-meet.png" alt="Google Meet" /></span><span>Google Meet</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/loom.png" alt="Loom" /></span><span>Loom</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/notebooklm.png" alt="NotebookLM" /></span><span>NotebookLM</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/apps-script.webp" alt="Google Apps Script" /></span><span>Google Apps Script</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/calendar.png" alt="Google Calendar" /></span><span>Google Calendar</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/dext.png" alt="Dext" /></span><span>Dext</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/chatgpt.png" alt="ChatGPT" /></span><span>ChatGPT</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/excel.png" alt="Excel" /></span><span>Excel</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/quickbooks.png" alt="QuickBooks Online" /></span><span>QuickBooks Online</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-sheets.png" alt="Google Sheets" /></span><span>Google Sheets</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/gmail.png" alt="Gmail" /></span><span>Gmail</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/saasant.png" alt="Saasant" /></span><span>Saasant</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/claude-icon.png" alt="Claude" /></span><span>Claude</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/xero.webp" alt="Xero" /></span><span>Xero</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/drive.png" alt="Google Drive" /></span><span>Google Drive</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-meet.png" alt="Google Meet" /></span><span>Google Meet</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/loom.png" alt="Loom" /></span><span>Loom</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/notebooklm.png" alt="NotebookLM" /></span><span>NotebookLM</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/apps-script.webp" alt="Google Apps Script" /></span><span>Google Apps Script</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/calendar.png" alt="Google Calendar" /></span><span>Google Calendar</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/dext.png" alt="Dext" /></span><span>Dext</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/chatgpt.png" alt="ChatGPT" /></span><span>ChatGPT</span></div>
-        <div class="tool-card"><span class="tool-badge"><img src="assets/tools/excel.png" alt="Excel" /></span><span>Excel</span></div>
+      <div class="tools-group">
+        <h3 class="tools-group-title">Admin &amp; productivity</h3>
+        <div class="tools-grid">
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/drive.png" alt="Google Drive" /></span><span>Google Drive</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/calendar.png" alt="Google Calendar" /></span><span>Google Calendar</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/gmail.png" alt="Gmail" /></span><span>Gmail</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/google-meet.png" alt="Google Meet" /></span><span>Google Meet</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/loom.png" alt="Loom" /></span><span>Loom</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/chatgpt.png" alt="ChatGPT" /></span><span>ChatGPT</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/claude-icon.png" alt="Claude" /></span><span>Claude</span></div>
+          <div class="tool-card"><span class="tool-badge"><img src="assets/tools/notebooklm.png" alt="NotebookLM" /></span><span>NotebookLM</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2212,5 +2237,35 @@
   })();
 </script>
 
+
+  <div class="xg-overlay" id="xgOverlay" role="dialog" aria-modal="true" aria-label="Xero screenshots">
+    <div class="xg">
+      <div class="xg-top"><span id="xgCount"></span><button type="button" class="xg-close" id="xgClose" aria-label="Close">&times;</button></div>
+      <div class="xg-stage"><img id="xgImg" alt="" /></div>
+      <div class="xg-bottom">
+        <div class="xg-cap" id="xgCap"></div>
+        <div class="xg-nav"><button type="button" id="xgPrev" aria-label="Previous screenshot">&lsaquo;</button><button type="button" id="xgNext" aria-label="Next screenshot">&rsaquo;</button></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var ov=document.getElementById('xgOverlay'); if(!ov) return;
+    var items=[].slice.call(document.querySelectorAll('#xgData li')).map(function(li){return {src:li.dataset.src,title:li.dataset.title,cap:li.innerHTML};});
+    var img=document.getElementById('xgImg'),cap=document.getElementById('xgCap'),cnt=document.getElementById('xgCount');
+    var i=0,last=null;
+    function show(){var it=items[i];img.src=it.src;img.alt=it.title;cap.innerHTML='<b>'+it.title+'</b>'+it.cap;cnt.textContent=(i+1)+' / '+items.length;}
+    function open(n){last=document.activeElement;i=n||0;show();ov.classList.add('open');document.body.style.overflow='hidden';document.getElementById('xgClose').focus();}
+    function close(){ov.classList.remove('open');document.body.style.overflow='';if(last)last.focus();}
+    function go(d){i=(i+d+items.length)%items.length;show();}
+    [].forEach.call(document.querySelectorAll('[data-xg-open]'),function(b){b.addEventListener('click',function(){open(parseInt(b.getAttribute('data-xg-open'),10));});});
+    document.getElementById('xgClose').addEventListener('click',close);
+    document.getElementById('xgPrev').addEventListener('click',function(){go(-1);});
+    document.getElementById('xgNext').addEventListener('click',function(){go(1);});
+    ov.addEventListener('click',function(e){if(e.target===ov)close();});
+    document.addEventListener('keydown',function(e){if(!ov.classList.contains('open'))return;
+      if(e.key==='Escape')close(); else if(e.key==='ArrowRight')go(1); else if(e.key==='ArrowLeft')go(-1);});
+  })();
+  </script>
 </body>
 </html>
