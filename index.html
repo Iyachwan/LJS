@@ -1185,48 +1185,43 @@
   .lightbox-close svg{ width:16px; height:16px; }
 
   /* ---------- Tools (static) ---------- */
-  .tools-groups{ display:grid; gap:28px; }
+  .tools-groups{ display:grid; grid-template-columns:1fr; gap:22px; }
+  .tools-group{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:28px 30px 30px; min-width:0;
+  }
   .tools-group-title{
-    font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.04em;
-    text-transform:uppercase; color:var(--ink-soft); margin:0 0 12px;
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--mono); font-size:14px; font-weight:600; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 20px;
   }
-  .tools-grid{ display:flex; flex-wrap:wrap; gap:12px; }
+  .tools-group-title::after{ content:""; flex:1; height:1px; background:var(--border); }
+  .tools-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+  @media (max-width: 1100px){ .tools-grid{ grid-template-columns:repeat(2, 1fr); } }
   .tools-grid > *{ min-width:0; }
-  @media (max-width: 640px){
-    .tools-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .tool-card{ padding:12px 14px; gap:10px; }
-    .tool-badge{ width:24px; height:24px; }
-    .tool-card span{ font-size:13.5px; white-space:normal !important; }
-  }
-  .tool-card{ padding:10px 14px; gap:8px; }
-    .tool-badge{ width:22px; height:22px; }
-    .tool-card span{ font-size:12px; }
-  }
   .tool-card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:18px 22px;
-    display:flex; align-items:center;
-    gap:12px;
-    flex:0 0 auto;
-    transition: border-color .25s ease, transform .25s ease;
+    display:flex; align-items:center; gap:16px;
+    padding:16px 18px;
+    background:var(--bg); border:1px solid var(--border); border-radius:12px;
+    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
   }
-  .tool-card:hover{ border-color:var(--accent); transform:translateY(-3px); }
+  .tool-card:hover{ border-color:var(--accent); transform:translateY(-3px); box-shadow:0 10px 24px -14px rgba(0,0,0,.25); }
   .tool-badge{
-    width:32px; height:32px;
+    width:52px; height:52px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+    background:#fff; border:1px solid var(--border); border-radius:12px; padding:9px;
   }
-  .tool-badge img{
-    width:100%; height:100%;
-    object-fit:contain;
+  .tool-badge img{ width:100%; height:100%; object-fit:contain; display:block; }
+  .tool-card span:not(.tool-badge){
+    font-size:16.5px; font-weight:500; color:var(--ink); line-height:1.3;
   }
-  .tool-card span{
-    font-size:14px; font-weight:500; color:var(--ink-soft);
-    white-space:nowrap;
+  @media (max-width: 640px){
+    .tools-group{ padding:20px 16px; }
+    .tools-grid{ grid-template-columns:1fr 1fr; gap:10px; }
+    .tool-card{ padding:12px; gap:10px; }
+    .tool-badge{ width:40px; height:40px; padding:7px; border-radius:10px; }
+    .tool-card span:not(.tool-badge){ font-size:14.5px; }
   }
-
 
   /* ---------- Work samples (Solano Inc.) ---------- */
   .samples-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
