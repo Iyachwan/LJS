@@ -1318,21 +1318,6 @@
   .hero-proof figcaption{ margin-top:10px; font-size:.85rem; color:var(--muted, #667); }
   @media (max-width:900px){ .hero-proof{ max-width:560px; margin:0 auto; } }
 
-  /* Closer, framed professional portrait */
-  .about-photo-wrap{ padding-top:0; }
-  .about-photo-wrap::before,.about-photo-wrap::after{ display:none; }
-  .about-photo{
-    max-width:400px; aspect-ratio:4/5; overflow:hidden; border-radius:16px;
-    background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--bg)) 0%, color-mix(in srgb, var(--accent) 22%, var(--bg)) 100%);
-    border:1px solid var(--border);
-    box-shadow:0 1px 2px rgba(0,0,0,.05), 0 16px 40px rgba(11,37,64,.10);
-    animation:none;
-  }
-  .about-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 0; filter:none; padding-top:6%; }
-  html[data-theme="dark"] .about-photo img{ filter:none; }
-  .about-photo:hover img{ transform:none; }
-  @media (max-width:860px){ .about-photo{ max-width:300px; margin-bottom:20px; } }
-
   .brand-name{ display:inline-flex; align-items:center; gap:10px; font-family:var(--serif); font-size:1.1rem; font-weight:500; color:var(--ink); text-decoration:none; letter-spacing:-0.01em; white-space:nowrap; }
   .brand-mark{ height:28px; width:auto; display:block; }
   @media (max-width:600px){ .brand-name{ font-size:1rem; padding-left:16px; gap:8px; } .brand-mark{ height:24px; } }
@@ -1482,7 +1467,7 @@
           <div class="flow-chip">Xero CSV</div>
         </div>
         <div class="case-metric-row">
-          <div class="big">1&ndash;5 min</div>
+          <div class="big">5&ndash;15 min</div>
           <div class="small">Consolidation time per run, down from several days of manual work</div>
         </div>
       </div>
@@ -1555,7 +1540,7 @@
   <section class="reveal about-section">
     <div class="about-photo-wrap">
       <div class="about-photo">
-        <img src="assets/headshot-portrait.png" alt="Lyra Jane Sapungan" />
+        <img src="assets/headshot-transparent.png" alt="Lyra Jane Sapungan" />
       </div>
     </div>
     <div class="about-copy">
