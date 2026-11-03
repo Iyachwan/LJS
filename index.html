@@ -1224,7 +1224,7 @@
   }
 
   /* ---------- Work samples (Solano Inc.) ---------- */
-  .samples-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
+  .samples-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
   .samples-grid > *{ min-width:0; }
   .sample-card{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
@@ -1243,6 +1243,7 @@
   .sample-tags span{ font-size:13px; border:1px solid var(--border); border-radius:999px; padding:4px 10px; color:var(--ink-soft); }
   .sample-link{ align-self:flex-start; background:none; border:0; padding:0; cursor:pointer; color:var(--accent); font:600 15.5px var(--sans, inherit); }
   .sample-link:hover{ text-decoration:underline; }
+  a.sample-link{ text-decoration:none; margin-top:-4px; }
   .sample-card.is-soon{ opacity:.7; justify-content:center; }
   .sample-soon{ font-family:var(--mono); font-size:13px; color:var(--ink-soft); }
   @media (max-width: 860px){ .samples-grid{ grid-template-columns:1fr; } }
@@ -1499,7 +1500,7 @@
   <section id="samples" class="reveal">
     <div class="section-head">
       <div class="kicker">Work samples</div>
-      <h2>Solano Inc. &mdash; September close</h2>
+      <h2>Solano Inc.: September close</h2>
       <p class="section-desc">A fictional client with demo data, so you can see the full workflow without exposing anyone's real books.</p>
     </div>
     <div class="samples-grid">
@@ -1523,11 +1524,21 @@
         <li data-src="assets/solano/8-aged-payables.webp" data-title="Aged payables">Open supplier bills by aging bucket.</li>
         </ul>
       </article>
-      <article class="sample-card is-soon" hidden>
-        <div class="kicker">QuickBooks Online</div>
-        <h3>Same close in QuickBooks</h3>
-        <p>The same September close, done in QuickBooks Online.</p>
-        <span class="sample-soon">Coming soon</span>
+      <article class="sample-card">
+        <div class="kicker">Excel</div>
+        <button type="button" class="sample-thumb" data-xg-set="xgDataExcel" data-xg-open="0" aria-label="Open Excel bank reconciliation screenshot">
+          <img src="assets/solano/excel-1-bank-rec.webp" alt="Excel bank reconciliation for Solano Inc., September 2026" loading="lazy" />
+        </button>
+        <h3>Supporting workpapers in Excel</h3>
+        <p>The Excel side of the same close: a manual bank reconciliation, the September bank statement, and the payroll register with its journal entry.</p>
+        <div class="sample-tags"><span>Bank reconciliation</span><span>Payroll register</span><span>Journal entries</span></div>
+        <button type="button" class="sample-link" data-xg-set="xgDataExcel" data-xg-open="0">View screenshots &rarr;</button>
+        <a class="sample-link" href="https://docs.google.com/spreadsheets/d/1Kn7cLIDF_FWmQq_pezkVZ7-ZVF5h9Rv9/edit?usp=sharing" target="_blank" rel="noopener">Open the workbook (view only) &nearr;</a>
+        <ul hidden id="xgDataExcel">
+        <li data-src="assets/solano/excel-1-bank-rec.webp" data-title="Bank reconciliation">Bank and book sides both adjusted to 150,302.24. Check 1029 is stale and held until the supplier confirms in writing before void and reissue.</li>
+        <li data-src="assets/solano/excel-2-bank-statement.webp" data-title="Bank statement">September statement, 191,280.55 to 129,477.89, with each line tagged to its journal number.</li>
+        <li data-src="assets/solano/excel-3-payroll.webp" data-title="Payroll register and journal">Three employees, monthly and daily-rated with overtime. Flat sample rates for tax and contributions. The journal balances at 63,564.39.</li>
+        </ul>
       </article>
     </div>
   </section>
@@ -2214,7 +2225,7 @@
 </script>
 
 
-  <div class="xg-overlay" id="xgOverlay" role="dialog" aria-modal="true" aria-label="Xero screenshots">
+  <div class="xg-overlay" id="xgOverlay" role="dialog" aria-modal="true" aria-label="Screenshots">
     <div class="xg">
       <div class="xg-top"><span id="xgCount"></span><button type="button" class="xg-close" id="xgClose" aria-label="Close">&times;</button></div>
       <div class="xg-stage"><img id="xgImg" alt="" /></div>
@@ -2227,14 +2238,15 @@
   <script>
   (function(){
     var ov=document.getElementById('xgOverlay'); if(!ov) return;
-    var items=[].slice.call(document.querySelectorAll('#xgData li')).map(function(li){return {src:li.dataset.src,title:li.dataset.title,cap:li.innerHTML};});
+    var items=[];
+    function load(id){items=[].slice.call(document.querySelectorAll('#'+id+' li')).map(function(li){return {src:li.dataset.src,title:li.dataset.title,cap:li.innerHTML};});}
     var img=document.getElementById('xgImg'),cap=document.getElementById('xgCap'),cnt=document.getElementById('xgCount');
     var i=0,last=null;
     function show(){var it=items[i];img.src=it.src;img.alt=it.title;cap.innerHTML='<b>'+it.title+'</b>'+it.cap;cnt.textContent=(i+1)+' / '+items.length;}
     function open(n){last=document.activeElement;i=n||0;show();ov.classList.add('open');document.body.style.overflow='hidden';document.getElementById('xgClose').focus();}
     function close(){ov.classList.remove('open');document.body.style.overflow='';if(last)last.focus();}
     function go(d){i=(i+d+items.length)%items.length;show();}
-    [].forEach.call(document.querySelectorAll('[data-xg-open]'),function(b){b.addEventListener('click',function(){open(parseInt(b.getAttribute('data-xg-open'),10));});});
+    [].forEach.call(document.querySelectorAll('[data-xg-open]'),function(b){b.addEventListener('click',function(){load(b.getAttribute('data-xg-set')||'xgData');open(parseInt(b.getAttribute('data-xg-open'),10));});});
     document.getElementById('xgClose').addEventListener('click',close);
     document.getElementById('xgPrev').addEventListener('click',function(){go(-1);});
     document.getElementById('xgNext').addEventListener('click',function(){go(1);});
