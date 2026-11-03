@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lyra Jane Sapungan — Bookkeeper | Xero, QuickBooks &amp; Accounting Automation</title>
+<title>Lyra Jane Sapungan, Bookkeeper | Xero, QuickBooks &amp; Accounting Automation</title>
 <meta name="description" content="Xero Certified Professional and QuickBooks Certified bookkeeper offering bookkeeping cleanup, bank reconciliation, payroll data recording, and accounting automation." />
-<meta property="og:title" content="Lyra Jane Sapungan — Bookkeeper | Xero, QuickBooks & Accounting Automation" />
+<meta property="og:title" content="Lyra Jane Sapungan, Bookkeeper | Xero, QuickBooks & Accounting Automation" />
 <meta property="og:description" content="Xero Certified Professional and QuickBooks Certified bookkeeper offering bookkeeping cleanup, bank reconciliation, payroll data recording, and accounting automation." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/headshot.webp" />
@@ -1307,6 +1307,37 @@
     will-change: opacity, transform;
   }
   .reveal.in{ opacity:1; transform:translateY(0) scale(1); }
+
+  /* Plain hero: real work sample instead of illustration */
+  .hero-panel{ background:var(--bg); }
+  .hero h1{ font-family:var(--serif); font-weight:500; font-size:clamp(2rem,4vw,3.1rem); line-height:1.15; letter-spacing:-0.01em; }
+  .hero h1 strong,.hero h1 em{ font:inherit; color:inherit; }
+  .hero .eyebrow{ background:none; padding:0; color:var(--muted, #667); font-family:var(--sans); font-size:.9rem; letter-spacing:0; text-transform:none; }
+  .hero-proof{ margin:0; }
+  .hero-proof img{ display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:8px; box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06); }
+  .hero-proof figcaption{ margin-top:10px; font-size:.85rem; color:var(--muted, #667); }
+  @media (max-width:900px){ .hero-proof{ max-width:560px; margin:0 auto; } }
+
+  /* Closer, framed professional portrait */
+  .about-photo-wrap{ padding-top:0; }
+  .about-photo-wrap::before,.about-photo-wrap::after{ display:none; }
+  .about-photo{
+    max-width:400px; aspect-ratio:4/5; overflow:hidden; border-radius:16px;
+    background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--bg)) 0%, color-mix(in srgb, var(--accent) 22%, var(--bg)) 100%);
+    border:1px solid var(--border);
+    box-shadow:0 1px 2px rgba(0,0,0,.05), 0 16px 40px rgba(11,37,64,.10);
+    animation:none;
+  }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 0; filter:none; padding-top:6%; }
+  html[data-theme="dark"] .about-photo img{ filter:none; }
+  .about-photo:hover img{ transform:none; }
+  @media (max-width:860px){ .about-photo{ max-width:300px; margin-bottom:20px; } }
+
+  .brand-name{ display:inline-flex; align-items:center; gap:10px; font-family:var(--serif); font-size:1.1rem; font-weight:500; color:var(--ink); text-decoration:none; letter-spacing:-0.01em; white-space:nowrap; }
+  .brand-mark{ height:28px; width:auto; display:block; }
+  @media (max-width:600px){ .brand-name{ font-size:1rem; padding-left:16px; gap:8px; } .brand-mark{ height:24px; } }
+
+  html[data-theme="dark"] .hero-proof img{ border-color:rgba(255,255,255,.08); filter:brightness(.88); box-shadow:0 8px 28px rgba(0,0,0,.45); }
 </style>
 </head>
 <body id="top">
@@ -1316,8 +1347,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <img src="assets/logo-ljs-navy.png" alt="LJS — Lyra Jane Sapungan" class="brand-logo brand-logo-light" />
-      <img src="assets/logo-ljs-white.png" alt="LJS — Lyra Jane Sapungan" class="brand-logo brand-logo-dark" />
+      <a href="#" class="brand-name"><img src="assets/constellation.png" alt="" class="brand-mark" />Lyra Jane Sapungan</a>
     </div>
     <nav class="nav-links">
       <a href="#top" id="navHome">Home</a>
@@ -1371,65 +1401,28 @@
 <main>
 
   <!-- HERO -->
-  <div class="bg-dotgrid panel cursor-glow-zone">
+  <div class="panel hero-panel">
   <div class="wrap">
   <section class="hero hero-split">
     <div class="hero-text">
       <div class="role-kicker"><span id="roleTypedText"></span><span class="type-cursor">|</span></div>
-      <div class="eyebrow"><span class="pulse"></span>Available for remote projects &amp; ongoing support</div>
-      <h1>Accurate books,<br><strong>reconciled accounts,</strong><br><em>smarter spreadsheets.</em></h1>
-      <p class="hero-sub">I help businesses get and keep their books in order — whether that's cleaning up a backlog, catching up months of reconciliation, or handling the ongoing bookkeeping, payroll data, and automation that keeps everything current.</p>
+      <div class="eyebrow">Bookkeeper &middot; Laguna, Philippines &middot; Open to remote work</div>
+      <h1>I keep your Xero and QuickBooks books reconciled and close-ready.</h1>
+      <p class="hero-sub">Catch-up and cleanup, weekly bank reconciliation, month-end journals, and payroll recording. When a task repeats every cutoff, I script it in Google Sheets so it stops eating hours.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Work With Me</a>
-        <a href="#work" class="btn btn-ghost">View My Work</a>
+        <a href="#work" class="btn btn-primary">See a sample close</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
       <div class="hero-tags">
-        <span class="tag">Xero Certified Pro L2</span>
-        <span class="tag">QuickBooks Certified L2</span>
+        <span class="tag">Xero Certified Professional L2</span>
+        <span class="tag">QuickBooks Online Certified</span>
         <span class="tag">Google Apps Script</span>
       </div>
     </div>
-    <div class="desk-scene-hero" id="deskSceneHero">
-      <div class="desk-scene-img-wrap">
-        <img src="assets/lj-desk-scene.png" alt="LJ desk scene illustration representing bookkeeping tools and skills" />
-      </div>
-      <div class="desk-card card-report">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v5h5"/><path d="M9 15v3M12 13v5M15 11v7"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">Reports &amp; Dashboards</span>
-        </span>
-      </div>
-      <div class="desk-card card-bank">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10M20 21V10M2 10l10-6 10 6M6 10v6M10 10v6M14 10v6M18 10v6"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">Bank Reconciliation</span>
-        </span>
-      </div>
-      <div class="desk-card card-excel">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v5h5"/><path d="M8 13h8M8 17h8M8 9h2"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">Excel / Sheets</span>
-        </span>
-      </div>
-      <div class="desk-card card-xero">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">Xero</span>
-        </span>
-      </div>
-      <div class="desk-card card-qb">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5a2.5 2.5 0 0 1 2.5-2.5h1a2.5 2.5 0 0 1 0 5h-1a2.5 2.5 0 0 0 0 5h1a2.5 2.5 0 0 0 2.5-2.5"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">QuickBooks Online</span>
-        </span>
-      </div>
-      <div class="desk-card card-script">
-        <span class="desk-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6L2 12l6 6M16 6l6 6-6 6"/></svg></span>
-        <span class="desk-card-body">
-          <span class="desk-card-title">Apps Script Automation</span>
-        </span>
-      </div>
-    </div>
+    <figure class="hero-proof">
+      <img src="assets/solano/4-bank-rec-summary.webp" alt="Bank reconciliation summary in Xero for a sample client, September" />
+      <figcaption>Sample client: September bank reconciliation summary in Xero. Full close below.</figcaption>
+    </figure>
   </section>
 
   <!-- STATS -->
@@ -1462,14 +1455,14 @@
   <section id="work" class="reveal">
     <div class="section-head">
       <div class="kicker">Featured build</div>
-      <h2>Project Atlas — payroll automation</h2>
+      <h2>Project Atlas, payroll automation</h2>
       <p class="section-desc">An internal Google Apps Script system built to solve a real bottleneck: consolidating payroll across multiple clients by hand.</p>
     </div>
     <div class="case">
       <div class="case-copy">
         <div class="kicker">Internal automation tool</div>
         <h3>From days to minutes, without losing accuracy</h3>
-        <p>Payroll registers for 2,800+ employees across multiple clients used to take several days to consolidate, verify, and turn into journal entries. I built a Google Apps Script system that does all three — automatically.</p>
+        <p>Payroll registers for 2,800+ employees across multiple clients used to take several days to consolidate, verify, and turn into journal entries. I built a Google Apps Script system that does all three, automatically.</p>
         <ul class="case-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Consolidates payroll registers across multiple clients and sites</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Verifies computations before they reach the books</li>
@@ -1545,7 +1538,7 @@
         <li data-src="assets/solano/8-aged-payables.webp" data-title="Aged payables">Open supplier bills by aging bucket.</li>
         </ul>
       </article>
-      <article class="sample-card is-soon">
+      <article class="sample-card is-soon" hidden>
         <div class="kicker">QuickBooks Online</div>
         <h3>Same close in QuickBooks</h3>
         <p>The same September close, done in QuickBooks Online.</p>
@@ -1562,14 +1555,14 @@
   <section class="reveal about-section">
     <div class="about-photo-wrap">
       <div class="about-photo">
-        <img src="assets/headshot-transparent.png" alt="Lyra Jane Sapungan" />
+        <img src="assets/headshot-portrait.png" alt="Lyra Jane Sapungan" />
       </div>
     </div>
     <div class="about-copy">
       <div class="about-eyebrow">WHO I AM</div>
       <h2>Hi, I'm Lyra.</h2>
-      <p class="section-desc" style="max-width:520px;">I'm a bookkeeper and accounting associate based in Laguna, Philippines. I'm detail-first and process-minded — I'd rather build a checklist or a small script than repeat the same manual step every cutoff, and I'm comfortable working through large, messy datasets until they're clean and reconciled.</p>
-      <p class="section-desc" style="max-width:520px;">I've worked across manufacturing, cooperative, and outsourcing environments, and I treat every engagement — whether it's a quick cleanup or an ongoing monthly retainer — with the same standard: accurate, documented, and audit-ready.</p>
+      <p class="section-desc" style="max-width:520px;">I'm a bookkeeper based in Laguna, Philippines. In my current role I reconcile seven bank accounts in Xero every week and record payroll for 2,800+ employees across several client sites. When the same manual step comes up every cutoff, I'd rather write a checklist or a small script than keep doing it by hand.</p>
+      <p class="section-desc" style="max-width:520px;">Before this I handled AP, AR, and BIR alphalist filings for a 650-employee cooperative, and part-time QuickBooks work for a US restaurant client. Small cleanup or ongoing monthly work, I leave the books reconciled and the adjustments documented.</p>
       <div class="about-signoff">
         <span class="about-signoff-mark">Lyra Jane</span>
         <span class="about-signoff-role">Bookkeeper &amp; Accounting Associate</span>
@@ -1586,7 +1579,7 @@
     <div class="section-head">
       <div class="kicker">What I do</div>
       <h2>Bookkeeping support that keeps you audit-ready</h2>
-      <p class="section-desc">From one-time cleanup to ongoing bookkeeping — the day-to-day accounting work that keeps a business's numbers accurate, current, and ready for review.</p>
+      <p class="section-desc">From one-time cleanup to ongoing bookkeeping, the day-to-day accounting work that keeps a business's numbers accurate, current, and ready for review.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
@@ -1597,32 +1590,32 @@
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="19" cy="18" r="2"/></svg></div>
         <h3>Bookkeeping &amp; transaction recording</h3>
-        <p>Day-to-day categorization and recording in Xero or QuickBooks — keeping your books accurate as transactions come in.</p>
+        <p>Day-to-day categorization and recording in Xero or QuickBooks, keeping your books accurate as transactions come in.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3l4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"/></svg></div>
         <h3>Bank reconciliation</h3>
-        <p>Ongoing or historical reconciliation across multiple accounts — including backlog and discrepancy cleanup for accounts that haven't been touched in a while.</p>
+        <p>Ongoing or historical reconciliation across multiple accounts, including backlog and discrepancy cleanup for accounts that haven't been touched in a while.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></div>
         <h3>Journal entries &amp; close support</h3>
-        <p>Xero-ready manual journals for reclassifications, accruals, and month-end adjustments — mapped and documented.</p>
+        <p>Xero-ready manual journals for reclassifications, accruals, and month-end adjustments, mapped and documented.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <h3>AP / AR support</h3>
-        <p>Invoice processing, vendor payments, collections follow-up, and supporting documentation — kept clean and traceable.</p>
+        <p>Invoice processing, vendor payments, collections follow-up, and supporting documentation, kept clean and traceable.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3>Process automation</h3>
-        <p>Custom Google Apps Script tools that consolidate, verify, and export — cutting manual work from days to minutes.</p>
+        <p>Custom Google Apps Script tools that consolidate, verify, and export, cutting manual work from days to minutes.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
         <h3>Payroll data recording</h3>
-        <p>Consolidating multi-client, multi-site payroll registers into clean, upload-ready records — validated before it ever touches your books.</p>
+        <p>Consolidating multi-client, multi-site payroll registers into clean, upload-ready records, validated before it ever touches your books.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
@@ -1644,7 +1637,7 @@
     </div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">Jul 2025 — Present</div>
+        <div class="tl-date">Jul 2025 – Present</div>
         <div>
           <div class="tl-role">Accounting Associate</div>
           <div class="tl-org">Expedise Management Solutions Inc.</div>
@@ -1654,7 +1647,7 @@
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">Jun — Oct 2023</div>
+        <div class="tl-date">Jun – Oct 2023</div>
         <div>
           <div class="tl-role">Freelance Accounting Assistant (VA, Part-time)</div>
           <div class="tl-org">Vesper Bookkeeping &amp; Accounting Services</div>
@@ -1662,7 +1655,7 @@
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">Jan 2020 — Jun 2022</div>
+        <div class="tl-date">Jan 2020 – Jun 2022</div>
         <div>
           <div class="tl-role">Accounting Assistant</div>
           <div class="tl-org">Benny's Multipurpose Cooperative</div>
@@ -1689,7 +1682,7 @@
         </div>
         <div class="cert-body">
           <div class="cert-top"><span class="cert-badge">Xero</span></div>
-          <div class="cert-name">Xero Certified Professional — Level 2</div>
+          <div class="cert-name">Xero Certified Professional, Level 2</div>
           <div class="cert-issuer">Xero · Jan 2026 · Valid to Jan 2027</div>
           <a href="https://learning.central.xero.com/student/award/y8hqX2u991GvWxNFJiVSiZMV" target="_blank" rel="noopener" class="cert-link" onclick="event.stopPropagation()">Verify online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
@@ -1702,7 +1695,7 @@
         </div>
         <div class="cert-body">
           <div class="cert-top"><span class="cert-badge">Xero</span></div>
-          <div class="cert-name">Xero Certified Associate — Level 1</div>
+          <div class="cert-name">Xero Certified Associate, Level 1</div>
           <div class="cert-issuer">Xero · Jan 2026 · Valid to Jan 2027</div>
           <a href="https://learning.central.xero.com/student/award/m2JR2QX52R1hGuk7FAmDuSEs" target="_blank" rel="noopener" class="cert-link" onclick="event.stopPropagation()">Verify online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
@@ -1715,7 +1708,7 @@
         </div>
         <div class="cert-body">
           <div class="cert-top"><span class="cert-badge">Intuit</span></div>
-          <div class="cert-name">QuickBooks Online Certification — Level 2</div>
+          <div class="cert-name">QuickBooks Online Certification, Level 2</div>
           <div class="cert-issuer">Intuit · via Credly</div>
           <a href="https://www.credly.com/badges/df8e043c-4acf-4a6e-95d6-9c58a4906c9c" target="_blank" rel="noopener" class="cert-link" onclick="event.stopPropagation()">Verify on Credly <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
@@ -1728,7 +1721,7 @@
         </div>
         <div class="cert-body">
           <div class="cert-top"><span class="cert-badge">VAPPH</span></div>
-          <div class="cert-name">Bookkeeping, Xero &amp; QuickBooks — UK, US &amp; Dubai Taxation</div>
+          <div class="cert-name">Bookkeeping, Xero &amp; QuickBooks, UK, US &amp; Dubai Taxation</div>
           <div class="cert-issuer">Virtual Assistant Portal PH · Apr 2026</div>
         </div>
       </div>
@@ -1752,7 +1745,7 @@
         </div>
         <div class="cert-body">
           <div class="cert-top"><span class="cert-badge">Intuit</span></div>
-          <div class="cert-name">QuickBooks Online Certification — Level 1</div>
+          <div class="cert-name">QuickBooks Online Certification, Level 1</div>
           <div class="cert-issuer">Intuit · via Credly</div>
           <a href="https://www.credly.com/badges/c4ede502-bd55-476e-b3fc-31adc6fb96e0" target="_blank" rel="noopener" class="cert-link" onclick="event.stopPropagation()">Verify on Credly <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
@@ -1815,7 +1808,7 @@
       <span class="skill-pill">Discrepancy investigation</span>
       <span class="skill-pill">Process documentation</span>
       <span class="skill-pill">Audit-ready recordkeeping</span>
-      <span class="skill-pill">Cross-currency &amp; cross-jurisdiction awareness</span>
+      <span class="skill-pill">Multi-entity, multi-client books</span>
       <span class="skill-pill">Async, remote-first communication</span>
     </div>
   </section>
@@ -1828,7 +1821,7 @@
     <div class="contact-band cursor-glow-zone" style="overflow:hidden; position:relative;">
       <div class="kicker">Get in touch</div>
       <h2>Let's get your books in order</h2>
-      <p>Available part-time, 20–30 hours a week, async-friendly with Philippine night-shift overlap. Whether it's a one-time cleanup, catch-up bookkeeping, a reconciliation backlog, or ongoing bookkeeping and payroll recording — reach out and let's talk about what you need.</p>
+      <p>Available part-time, 20–30 hours a week, async-friendly with Philippine night-shift overlap. Whether it's a one-time cleanup, catch-up bookkeeping, a reconciliation backlog, or ongoing bookkeeping and payroll recording, reach out and let's talk about what you need.</p>
       <div class="contact-cta" style="position:relative; z-index:1;">
         <a href="mailto:ljxsapungan@gmail.com" class="btn btn-primary">Email me</a>
         <a href="https://linkedin.com/in/ljsapungan" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
@@ -1842,7 +1835,7 @@
   <div class="resume-modal-overlay" id="resumeModalOverlay" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
     <div class="resume-modal">
       <div class="resume-modal-header">
-        <h3 id="resumeModalTitle">Lyra Jane Sapungan — Résumé</h3>
+        <h3 id="resumeModalTitle">Lyra Jane Sapungan, Résumé</h3>
         <div class="resume-modal-actions">
           <a href="assets/Lyra-Jane-Sapungan-Resume.pdf" download class="btn btn-primary">Download</a>
           <button type="button" class="resume-modal-close" id="resumeModalClose" aria-label="Close preview">
@@ -1894,7 +1887,8 @@
   } catch (e) {
     console.warn('localStorage unavailable (this is expected on file:// URLs in some browsers):', e.message);
   }
-  const initial = stored || 'light';
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = stored || (prefersDark ? 'dark' : 'light');
   root.setAttribute('data-theme', initial);
   function syncToggleLabels(){
     const label = root.getAttribute('data-theme') === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
