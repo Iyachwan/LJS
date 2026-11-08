@@ -1037,6 +1037,17 @@
   @media (max-width: 860px){
     .case-demo{ padding:22px 20px 28px; }
   }
+  .case-2{ margin-top:20px; }
+  .case-shot{
+    display:block; width:100%; min-width:0; padding:0; cursor:zoom-in;
+    border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    background:var(--bg-alt); line-height:0;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .case-shot img{ width:100%; height:auto; display:block; }
+  .case-shot:hover{ transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.18); }
+  .case-shot:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ .case-shot{ transition:none; } .case-shot:hover{ transform:none; } }
 
   /* ---------- Experience ---------- */
   .timeline{ display:flex; flex-direction:column; }
@@ -1490,6 +1501,27 @@
           Your browser doesn't support embedded video.
         </video>
       </div>
+    </div>
+
+    <div class="case case-2">
+      <div class="case-copy">
+        <div class="kicker">Internal Google Apps Script dashboard</div>
+        <h3>Billing reconciliation, site by site</h3>
+        <p>Checking cost of sales in Xero against what each site was billed meant going through every site and month by hand. I built a dashboard in Apps Script, with Google Sheets as the backend, that shows where the margins land and where they need a closer look.</p>
+        <ul class="case-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Flags every site and month as OK, Review, or Flag against its margin target</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Compares Xero cost of sales to billing, line by line, with the variance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Records a justification for each variance: mark-up, pass-through, or absorbed</li>
+        </ul>
+        <button type="button" class="sample-link" data-xg-set="xgDataRecon" data-xg-open="0">View screenshots &rarr;</button>
+        <ul hidden id="xgDataRecon">
+        <li data-src="assets/finance-hub/site-directory.webp" data-title="Site directory">Status per site and month for 2026: Xero margin compared to each site's target. Site names are hidden.</li>
+        <li data-src="assets/finance-hub/billing-recon.webp" data-title="Billing reconciliation">One site's month: Xero cost of sales against billing, with a type and justification per line. Amounts and site details are blurred.</li>
+        </ul>
+      </div>
+      <button type="button" class="case-shot" data-xg-set="xgDataRecon" data-xg-open="0" aria-label="Open billing reconciliation dashboard screenshots">
+        <img src="assets/finance-hub/site-directory.webp" alt="Billing reconciliation dashboard showing OK, Review and Flag status per site and month, site names hidden" loading="lazy" />
+      </button>
     </div>
   </section>
   </div>
